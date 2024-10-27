@@ -1,11 +1,11 @@
 
 import math
-from temp import plot_the_impulse_with_coef
+from Discrete_LTI_Discrete_signal import plot_the_impulse_with_coef
 import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-from temp import DiscreteSignal, ContinuousSignal, LTI_Discrete, LTI_Continuous
+from Discrete_LTI_Discrete_signal import DiscreteSignal,  LTI_Discrete
 def main():
 
     INF = 5
