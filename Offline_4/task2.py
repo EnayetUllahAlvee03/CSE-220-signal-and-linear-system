@@ -57,14 +57,14 @@ def compare_dft_fft():
         for _ in range(10):  # Run 10 times
             _ = dft(signal)
         dft_end = time.time()
-        dft_times.append((dft_end - dft_start) / 10)
+        dft_times.append((dft_end - dft_start)/10)
 
         # Measure FFT runtime
         fft_start = time.time()
         for _ in range(10):  # Run 10 times
             _ = fft(signal)
         fft_end = time.time()
-        fft_times.append((fft_end - fft_start) / 10)
+        fft_times.append((fft_end - fft_start)/10)
 
     # Plot the results
     plt.figure(figsize=(10, 6))
@@ -73,8 +73,6 @@ def compare_dft_fft():
     plt.xlabel("Input Size (n)")
     plt.ylabel("Average Runtime (seconds)")
     plt.title("Runtime Comparison of DFT and FFT")
-    plt.yscale('log')
-    plt.xscale('log')
     plt.legend()
     plt.grid(True)
     plt.show()
@@ -95,14 +93,14 @@ def compare_idft_ifft():
         for _ in range(10):  # Run 10 times
             _ = idft(transform)
         idft_end = time.time()
-        idft_times.append((idft_end - idft_start) / 10)
+        idft_times.append((idft_end - idft_start)/10)
 
         # Measure IFFT runtime
         ifft_start = time.time()
         for _ in range(10):  # Run 10 times
             _ = ifft(transform)
         ifft_end = time.time()
-        ifft_times.append((ifft_end - ifft_start) / 10)
+        ifft_times.append((ifft_end - ifft_start)/10 )
 
     # Plot the results
     plt.figure(figsize=(10, 6))
@@ -111,8 +109,6 @@ def compare_idft_ifft():
     plt.xlabel("Input Size (n)")
     plt.ylabel("Average Runtime (seconds)")
     plt.title("Runtime Comparison of IDFT and IFFT")
-    plt.yscale('log')
-    plt.xscale('log')
     plt.legend()
     plt.grid(True)
     plt.show()

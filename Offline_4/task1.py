@@ -33,8 +33,8 @@ def generate_signals(frequency=5):
     noisy_signal_B = signal_A + noise_for_sigal_B
 
     # Applying random shift
-    # shift_samples = np.random.randint(-n // 2, n // 2)  # Random shift
-    shift_samples = 3
+    shift_samples = np.random.randint(-n // 2, n // 2)  # Random shift
+    # shift_samples = 3
     print(f"Shift Samples: {shift_samples}")
     signal_B = np.roll(noisy_signal_B, shift_samples)
     
@@ -61,6 +61,26 @@ def plot_magnitude_spectrum(dft_signal, title, color):
     plt.ylabel("Magnitude")
     plt.grid(True)
     plt.title(title)
+    plt.show()
+
+def plot_cross_correlation(cross_corr, title):
+    """
+    Plot the cross-correlation function, showing the correlation values at different sample lags.
+
+    Parameters:
+    cross_corr (array-like): Cross-correlation values.
+    title (str): The title of the plot.
+
+    Returns:
+    None
+    """
+    lags = np.arange(-len(cross_corr) // 2, len(cross_corr) // 2)  # Compute lags
+    plt.figure(figsize=(8, 6))
+    plt.stem(lags, np.roll(cross_corr, len(cross_corr) // 2), linefmt='g', markerfmt='go', basefmt=" ")
+    plt.xlabel("Lag (samples)")
+    plt.ylabel("Correlation")
+    plt.title(title)
+    plt.grid()
     plt.show()
 
 #implementation of dft nt using the default
@@ -96,25 +116,6 @@ def cross_correlation(signal_A, signal_B):
     #return only the real part
     return cross_correlation_signal.real
     
-def plot_cross_correlation(cross_corr, title):
-    """
-    Plot the cross-correlation function, showing the correlation values at different sample lags.
-
-    Parameters:
-    cross_corr (array-like): Cross-correlation values.
-    title (str): The title of the plot.
-
-    Returns:
-    None
-    """
-    lags = np.arange(-len(cross_corr) // 2, len(cross_corr) // 2)  # Compute lags
-    plt.figure(figsize=(8, 6))
-    plt.stem(lags, np.roll(cross_corr, len(cross_corr) // 2), linefmt='g', markerfmt='go', basefmt=" ")
-    plt.xlabel("Lag (samples)")
-    plt.ylabel("Correlation")
-    plt.title(title)
-    plt.grid()
-    plt.show()
 
 
 def detect_lag(cross_corr):
@@ -158,5 +159,5 @@ plot_original_signal(signal_A, "Signal A", "b")
 plot_magnitude_spectrum(dft_signal_A, "Magnitude Spectrum of Signal A", "b")
 plot_original_signal(signal_B, "Signal B", "r")
 plot_magnitude_spectrum(dft_signal_B, "Magnitude Spectrum of Signal B", "r")
-cross_correlation_signal = cross_correlation(signal_A, signal_B)
+plot_cross_correlation(cross_correlation_signal, "Cross-Correlation Signal")    
 
