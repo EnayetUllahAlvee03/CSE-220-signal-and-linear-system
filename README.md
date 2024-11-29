@@ -8,5 +8,5 @@ Offline tasks-->
   Online tasks-->
     online 1--> basic signal 
     online 2--> on  convlation
-    online 3--> on fourier series
-    online 4--> on fourier transform
+    online 3--> on fourier transform ( No online based on FS)
+    online 4--> 
