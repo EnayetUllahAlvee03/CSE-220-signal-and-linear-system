@@ -159,3 +159,4 @@ plot_magnitude_spectrum(dft_signal_A, "Magnitude Spectrum of Signal A", "b")
 plot_original_signal(signal_B, "Signal B", "r")
 plot_magnitude_spectrum(dft_signal_B, "Magnitude Spectrum of Signal B", "r")
 cross_correlation_signal = cross_correlation(signal_A, signal_B)
+
